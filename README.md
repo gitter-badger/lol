@@ -1,11 +1,11 @@
 #LOL
 
-`lol` is a command line utility with the intent of creating sane alternatives
+`lol` is a command line utility with the intent of creating easy alternatives
 for everyday commands.
 
 For instance, creating a tarball for a directory requires several command line
 arguments which almost always require a google search prior to running.  Or
-starting an HTTP server to serve the current directory over local host.
+starting an HTTP server to serve the current directory over localhost.
 
 ##`lol --help`
 

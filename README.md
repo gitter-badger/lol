@@ -7,6 +7,16 @@ For instance, creating a tarball for a directory requires several command line
 arguments which almost always require a google search prior to running.  Or
 starting an HTTP server to serve the current directory over localhost.
 
+`lol` is written with Python3.4, it hasn't been testing on anything else.
+
+
+#Quick Start
+
+```
+$ pip install git+https://github.com/tshauck/lol.git
+$ lol --help
+```
+
 ##`lol --help`
 
     Usage: lol [OPTIONS] COMMAND [ARGS]...

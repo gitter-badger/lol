@@ -18,12 +18,13 @@ $ lol --help
 ```
 
 ##`lol --help`
-Usage: lol [OPTIONS] COMMAND [ARGS]...
 
-Options:
-  --help  Show this message and exit.
+    Usage: lol [OPTIONS] COMMAND [ARGS]...
 
-Commands:
-  random  Generate `n` random samples from the...
-  serve   Start a server to serve a directory to...
-  tar     Create or extract a tar.
+    Options:
+      --help  Show this message and exit.
+
+    Commands:
+      random  Generate `n` random samples from the...
+      serve   Start a server to serve a directory to...
+      tar     Create or extract a tar.

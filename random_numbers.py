@@ -1,7 +1,12 @@
 import random
+import uuid
 
-def generate(dist):
+def generate(dist, location, scale):
     if dist == 'normal':
-        return random.gauss(0, 1)
+        return random.gauss(location, scale)
     elif dist == 'uniform':
-        return random.random()
+        return random.uniform(location, scale)
+    elif dist == 'lognormal':
+        return random.lognormvariate(location, scale)
+    elif dist == 'uuid':
+        return str(uuid.uuid4())

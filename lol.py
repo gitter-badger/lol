@@ -11,7 +11,7 @@ def cli():
 @cli.command()
 @click.argument("infile")
 def tar(infile):
-    """Create a tar.gz or extract from one.
+    """Create or extract a tar.gz or extract from one.
 
     Checks if the infile ends in .tar.gz, if it does, it extracts, otherwise
     it will create.
@@ -30,12 +30,15 @@ def serve(port):
     server.serve(port)
 
 @cli.command()
-@click.option("--dist", type=click.Choice(['normal', 'uniform']),
-              default='normal', help="Samplign Distribution.")
+@click.option("--dist", type=click.Choice(['normal', 'uniform', 'uuid',
+              'lognormal']),
+              default='normal', help="Sampling Distribution")
+@click.option("--location", type=float, help="Location Parameter", default=0)
+@click.option("--scale", type=float, help="Scale Parameter", default=1)
 @click.argument("n", type=int, required=False, default=1)
-def random(dist, n):
+def random(dist, location, scale, n):
     """Generate `n` random samples from the distribution."""
 
     for _ in range(n):
-        rand_n = random_numbers.generate(dist)
+        rand_n = random_numbers.generate(dist, location, scale)
         click.echo(rand_n)

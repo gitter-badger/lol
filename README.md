@@ -28,3 +28,14 @@ $ lol --help
       random  Generate `n` random samples from the...
       serve   Start a server to serve a directory to...
       tar     Create or extract a tar.
+
+##Examples
+
+    $ lol random --dist lognormal --location 10 --scale 1 3
+    52200.70883183378
+    45648.794092405995
+    19868.651309040968
+
+    $ lol random --dist uuid 2 | cut -d- -f1
+    fe7a1fd6
+    5da14713

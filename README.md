@@ -7,7 +7,7 @@ For instance, creating a tarball for a directory requires several command line
 arguments which almost always require a google search prior to running.  Or
 starting an HTTP server to serve the current directory over localhost.
 
-`lol` is written with Python3.4, it hasn't been testing on anything else.
+`lol` is written with Python3.4, it hasn't been tested on anything else.
 
 
 #Quick Start
@@ -18,13 +18,12 @@ $ lol --help
 ```
 
 ##`lol --help`
+Usage: lol [OPTIONS] COMMAND [ARGS]...
 
-    Usage: lol [OPTIONS] COMMAND [ARGS]...
+Options:
+  --help  Show this message and exit.
 
-    Options:
-      --help  Show this message and exit.
-
-    Commands:
-      random  Generate `n` random samples from the...
-      serve   Start a server to serve a directory to...
-      tar     Create a tar.
+Commands:
+  random  Generate `n` random samples from the...
+  serve   Start a server to serve a directory to...
+  tar     Create or extract a tar.

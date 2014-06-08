@@ -3,6 +3,7 @@ import click
 import file_ops
 import server
 import random_numbers
+import lol_statistics as ls
 
 @click.group()
 def cli():
@@ -31,7 +32,7 @@ def serve(port):
 
 @cli.command()
 @click.option("--dist", type=click.Choice(['normal', 'uniform', 'uuid',
-              'lognormal']),
+              'lognormal', 'int']),
               default='normal', help="Sampling Distribution")
 @click.option("--location", type=float, help="Location Parameter", default=0)
 @click.option("--scale", type=float, help="Scale Parameter", default=1)
@@ -42,3 +43,32 @@ def random(dist, location, scale, n):
     for _ in range(n):
         rand_n = random_numbers.generate(dist, location, scale)
         click.echo(rand_n)
+
+@cli.command()
+@click.option("--mean", is_flag=True)
+@click.option("--median", is_flag=True)
+@click.option("--mode", is_flag=True)
+@click.option("--every/--not-every", default=True)
+@click.argument("infile", type=click.File("r"), default='-', required=False)
+def stats(mean, median, mode, every, infile):
+    """Compute descriptive statistics on stream."""
+
+    def tab_delimit(stat, x):
+        click.echo("{}\t{}".format(stat, x))
+
+    total = []
+    for line in infile:
+        total.append(line)
+
+    input_list = [float(x.strip()) for x in total]
+
+    if mean or every:
+        mean_value = ls.mean(input_list)
+        tab_delimit("mean", mean_value)
+    if median or every:
+        median_value = ls.median(input_list)
+        tab_delimit("median", median_value)
+    if mode or every:
+        mode_value = ls.mode(input_list)
+        if mode_value:
+            tab_delimit("mode", mode_value)

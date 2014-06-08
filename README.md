@@ -27,6 +27,7 @@ $ lol --help
     Commands:
       random  Generate `n` random samples from the...
       serve   Start a server to serve a directory to...
+      stats   Compute descriptive statistics on stream.
       tar     Create or extract a tar.
 
 ##Examples
@@ -39,3 +40,8 @@ $ lol --help
     $ lol random --dist uuid 2 | cut -d- -f1
     fe7a1fd6
     5da14713
+
+    $ lol random --dist int --location 10 --scale 100 50 | lol stats
+    mean    56.12
+    median  58.5
+    mode    97.0
